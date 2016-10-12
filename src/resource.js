@@ -1,5 +1,8 @@
 var res = {
     HelloWorld_png : "res/HelloWorld.png",
+    outline_png : "res/outline/girl.png",
+    outline_vsh : "res/outline/outline.vsh",
+    outline_fsh : "res/outline/outline.fsh"
 };
 
 var g_resources = [];

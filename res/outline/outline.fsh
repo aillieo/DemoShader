@@ -17,6 +17,13 @@ void main()
     accum += texture2D(CC_Texture0, vec2(v_texCoord.x + radius, v_texCoord.y - radius));
     accum += texture2D(CC_Texture0, vec2(v_texCoord.x + radius, v_texCoord.y + radius));
     accum += texture2D(CC_Texture0, vec2(v_texCoord.x - radius, v_texCoord.y + radius));
+
+    radius *= 1.414;
+
+    accum += texture2D(CC_Texture0, vec2(v_texCoord.x - radius, v_texCoord.y));
+    accum += texture2D(CC_Texture0, vec2(v_texCoord.x + radius, v_texCoord.y));
+    accum += texture2D(CC_Texture0, vec2(v_texCoord.x, v_texCoord.y + radius));
+    accum += texture2D(CC_Texture0, vec2(v_texCoord.x, v_texCoord.y - radius));
     
     accum *= u_threshold;
     accum.rgb = u_outlineColor * accum.a;

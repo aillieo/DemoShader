@@ -11,3 +11,7 @@ frameworks/runtime-src
 
 # Ignore thumbnails created by windows
 Thumbs.db
+
+
+# webstorm
+.idea/

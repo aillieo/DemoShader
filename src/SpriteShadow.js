@@ -25,7 +25,7 @@ var SpriteShadow = cc.Node.extend({
             this.shader.setUniformLocationWith1f(this.shader.getUniformLocationForName('u_threshold'), 1.75);
             this.shader.setUniformLocationWith3f(this.shader.getUniformLocationForName('u_outlineColor'), 0 / 255, 0 / 255, 0 / 255);
 
-            this.sprite = new cc.Sprite('res/shadow/girl.png');
+            this.sprite = new cc.Sprite('res/shadow/knight.png');
 
             this.sprite.runAction(cc.sequence(cc.rotateBy(1.0, 10)).repeatForever());
 

@@ -17,7 +17,7 @@ var HelloWorldLayer = cc.Layer.extend({
 
         var outline = new SpriteOutline();
         outline.attr({
-            x: size.width / 3,
+            x: size.width / 4,
             y: size.height / 2
         });
         this.addChild(outline, 0);
@@ -25,10 +25,17 @@ var HelloWorldLayer = cc.Layer.extend({
 
         var shadow = new SpriteShadow();
         shadow.attr({
-            x: size.width * 2 / 3,
+            x: size.width * 2 / 4,
             y: size.height / 2
         });
         this.addChild(shadow, 0);
+        
+        var stripes = new SpriteStripes();
+        stripes.attr({
+            x: size.width * 3 /4,
+            y: size.height / 2
+        });
+        this.addChild(stripes, 0);
 
 
         return true;

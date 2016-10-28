@@ -16,6 +16,7 @@
         "src/app.js",
         "src/SpriteOutline.js",
         "src/SpriteShadow.js",
-        "src/SpriteStripes.js"
+        "src/SpriteStripes.js",
+        "src/SpriteShine.js"
     ]
 }

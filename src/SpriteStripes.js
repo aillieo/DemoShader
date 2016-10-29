@@ -21,7 +21,7 @@ var SpriteStripes = cc.Node.extend({
             this.shader.updateUniforms();
             this.shader.use();
             
-            this.sprite = new cc.Sprite('res/stripes/knight.png');
+            this.sprite = new Knight();
 
             this.sprite.runAction(cc.sequence(cc.moveBy(1,cc.p(0,100)), cc.moveBy(2,cc.p(0,-200)) , cc.moveBy(1,cc.p(0,100))).repeatForever());
             

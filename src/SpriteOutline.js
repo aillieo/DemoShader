@@ -5,6 +5,7 @@
 var SpriteOutline = cc.Node.extend({
     sprite:null,
     shader:null,
+    dt:0,
     ctor:function () {
 
         this._super();
@@ -25,9 +26,9 @@ var SpriteOutline = cc.Node.extend({
             this.shader.setUniformLocationWith1f(this.shader.getUniformLocationForName('u_threshold'), 1.75);
             this.shader.setUniformLocationWith3f(this.shader.getUniformLocationForName('u_outlineColor'), 0 / 255, 0 / 255, 255 / 255);
 
-            this.sprite = new cc.Sprite('res/outline/knight.png');
+            //this.sprite = new cc.Sprite('res/outline/knight.png');
+            this.sprite = new Knight;
 
-            this.sprite.runAction(cc.sequence(cc.rotateTo(1.0, 10), cc.rotateTo(1.0, -10)).repeatForever());
 
             if(cc.sys.isNative){
                 var glProgram_state = cc.GLProgramState.getOrCreateWithGLProgram(this.shader);
@@ -50,12 +51,15 @@ var SpriteOutline = cc.Node.extend({
 
     update : function (delta) {
 
+        this.dt += delta;
+        if(this.dt>3.14){this.dt-= 3.14;}
+
         if( 'opengl' in cc.sys.capabilities ) {
             if(cc.sys.isNative){
-                this.sprite.getGLProgramState().setUniformFloat("u_radius", Math.abs(this.sprite.getRotation() / 500));
+                this.sprite.getGLProgramState().setUniformFloat("u_radius", 0.003 * Math.abs(Math.sin(2 * this.dt)));
             }else{
                 this.shader.use();
-                this.shader.setUniformLocationWith1f(this.shader.getUniformLocationForName('u_radius'), Math.abs(this.sprite.getRotation() / 500));
+                this.shader.setUniformLocationWith1f(this.shader.getUniformLocationForName('u_radius'), 0.003 * Math.abs(Math.sin(2 * this.dt)));
                 this.shader.updateUniforms();
             }
         }

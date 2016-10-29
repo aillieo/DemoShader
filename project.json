@@ -14,6 +14,7 @@
     "jsList" : [
         "src/resource.js",
         "src/app.js",
+        "src/Knight.js",
         "src/SpriteOutline.js",
         "src/SpriteShadow.js",
         "src/SpriteStripes.js",

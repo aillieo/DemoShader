@@ -25,7 +25,7 @@ var SpriteShadow = cc.Node.extend({
             this.shader.setUniformLocationWith1f(this.shader.getUniformLocationForName('u_threshold'), 1.75);
             this.shader.setUniformLocationWith3f(this.shader.getUniformLocationForName('u_outlineColor'), 0 / 255, 0 / 255, 0 / 255);
 
-            this.sprite = new cc.Sprite('res/shadow/knight.png');
+            this.sprite = new Knight();
 
             this.sprite.runAction(cc.sequence(cc.rotateBy(1.0, 10)).repeatForever());
 
@@ -44,6 +44,11 @@ var SpriteShadow = cc.Node.extend({
         }
 
 
+        var bg = new cc.Sprite("res/BLANK.png");
+        this.addChild(bg,-1);
+        bg.setTextureRect(cc.rect(0,0,400,400));
+
+
         return true;
     },
 
@@ -52,11 +57,12 @@ var SpriteShadow = cc.Node.extend({
 
         if( 'opengl' in cc.sys.capabilities ) {
             if(cc.sys.isNative){
-                this.sprite.getGLProgramState().setUniformFloat("u_radius", Math.abs(this.sprite.getRotation() / 500));
+                this.sprite.getGLProgramState().setUniformFloat("u_radius", 0.01);
+                this.sprite.getGLProgramState().setUniformFloat("u_angel",  cc.degreesToRadians(-135 + this.sprite.getRotation()));
             }else{
                 this.shader.use();
-                this.shader.setUniformLocationWith1f(this.shader.getUniformLocationForName('u_radius'), 0.03);
-                this.shader.setUniformLocationWith1f(this.shader.getUniformLocationForName('u_angel'),  + cc.degreesToRadians(-45 + this.sprite.getRotation()));
+                this.shader.setUniformLocationWith1f(this.shader.getUniformLocationForName('u_radius'), 0.01);
+                this.shader.setUniformLocationWith1f(this.shader.getUniformLocationForName('u_angel'),  cc.degreesToRadians(-135 + this.sprite.getRotation()));
                 this.shader.updateUniforms();
             }
         }

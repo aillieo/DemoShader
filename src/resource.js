@@ -1,6 +1,7 @@
 var res = {
-    HelloWorld_png : "res/HelloWorld.png",
-    outline_png : "res/outline/knight.png",
+    BLANK_png : "res/BLANK.png",
+    knight_png : "res/knight.png",
+    knight_plist : "res/knight.plist",
     outline_vsh : "res/outline/outline.vsh",
     outline_fsh : "res/outline/outline.fsh",
     shadow_vsh : "res/shadow/shadow.vsh",

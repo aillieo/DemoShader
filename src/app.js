@@ -6,41 +6,40 @@ var HelloWorldLayer = cc.Layer.extend({
         this._super();
 
         var size = cc.winSize;
+        
 
-        this.sprite = new cc.Sprite(res.HelloWorld_png);
-        this.sprite.attr({
-            x: size.width / 2,
-            y: size.height / 2
+        var origin = new Knight();
+        origin.attr({
+            x: size.width * 0.1,
+            y: size.height *2 / 3
         });
-        this.addChild(this.sprite, 0);
-
-
-        var outline = new SpriteOutline();
-        outline.attr({
-            x: size.width / 5,
-            y: size.height / 2
-        });
-        this.addChild(outline, 0);
-
+        this.addChild(origin, 0);
 
         var shadow = new SpriteShadow();
         shadow.attr({
-            x: size.width * 2 / 5,
-            y: size.height / 2
+            x: size.width * 0.3,
+            y: size.height / 3
         });
         this.addChild(shadow, 0);
-        
+
+        var outline = new SpriteOutline();
+        outline.attr({
+            x: size.width * 0.5,
+            y: size.height * 2 / 3
+        });
+        this.addChild(outline, 0);
+
         var stripes = new SpriteStripes();
         stripes.attr({
-            x: size.width * 3 /5,
-            y: size.height / 2
+            x: size.width * 0.7,
+            y: size.height / 3
         });
         this.addChild(stripes, 0);
 
         var shine = new SpriteShine();
         shine.attr({
-            x: size.width * 4 /5,
-            y: size.height / 2
+            x: size.width * 0.9,
+            y: size.height * 2 / 3
         });
         this.addChild(shine, 0);
 
